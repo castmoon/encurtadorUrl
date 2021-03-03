@@ -14,9 +14,8 @@ app.use(async (req, res, next) => {
     if(savedUrl) {
       try {
         let link = savedUrl[0].link;
-        let { headers } = req;
-        let { host } = headers;
-        console.log(host);
+        res.redirect(`http://${link}`)
+        console.log(link);
       }catch (e) {
       res.status(400).json(e);
       }
